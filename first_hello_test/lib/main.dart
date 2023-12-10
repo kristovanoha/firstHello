@@ -17,16 +17,16 @@ class Home extends StatelessWidget {
     centerTitle: true,
   ),
   body: const Center(
-    child: Text('hlavni moc nečitelný teDD fff  sdfdsf s',
-    style: TextStyle(color: Color.fromARGB(255, 243, 219, 1), 
-    fontWeight: FontWeight.w800,
-    fontFamily: 'IndieFlower'),
+    child: Image.asset('assets/obr1.jpg'),
+    // style: TextStyle(color: Color.fromARGB(255, 243, 219, 1), 
+    // fontWeight: FontWeight.w800,
+    // fontFamily: 'IndieFlower'),
     
-    ),
+   // ),
      
     ),
     floatingActionButton: const FloatingActionButton(
-      onPressed: () {  },
+      onPressed: null,
       child: Text('KLick2'),
       backgroundColor: Colors.teal,
     ),
