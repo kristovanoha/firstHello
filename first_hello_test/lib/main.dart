@@ -1,3 +1,7 @@
+
+
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 
@@ -13,25 +17,43 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
   appBar: AppBar(
-    title: Text("coz uz"),
+    title: const Text("coz uz2 "),
     centerTitle: true,
   ),
-  body: const Center(
-    child: Image.asset('assets/obr1.jpg'),
-    // style: TextStyle(color: Color.fromARGB(255, 243, 219, 1), 
-    // fontWeight: FontWeight.w800,
-    // fontFamily: 'IndieFlower'),
-    
-   // ),
+  body:   Center(
+    child: TextButton(
+      onPressed: () => tiskDoConsole,
+      child:  Text("TlacoSSS"),
+
+    ), 
+
+  //  obrazek 
+  //  child: Image(
+  //   image: AssetImage('assets/obr5.jpg'),
+  //  ),
+   
      
     ),
-    floatingActionButton: const FloatingActionButton(
-      onPressed: null,
-      child: Text('KLick2'),
-      backgroundColor: Colors.teal,
+    // child: TextButton(
+    //   child: Text("neco"),
+    //   onPressed:  null,
+    // ),
+    floatingActionButton:  FloatingActionButton(
+      onPressed: tiskDoConsole,
+      child: Icon(
+        Icons.airport_shuttle,
+        color: Color.fromARGB(255, 0, 255, 64),
+      ),
+      backgroundColor: Color.fromARGB(255, 69, 8, 211),
     ),
     backgroundColor: Colors.green[400],
     // bottomNavigationBar:  ,
   );
   }
+
+  
+  void tiskDoConsole() => {
+    print("jouda"),
+    print("dalsi tesx")
+    };
 }
