@@ -20,20 +20,83 @@ class Home extends StatelessWidget {
     title: const Text("coz uz2 "),
     centerTitle: true,
   ),
-  body:   Center(
-    child: TextButton(
-      onPressed: () => tiskDoConsole,
-      child:  Text("TlacoSSS"),
+  body: 
+  Column(
+    mainAxisAlignment: MainAxisAlignment.end,
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: <Widget>[
+      Container(
+        padding: EdgeInsets.all(20),
+        color: Colors.brown[300],
+        child: Text("aha"),
+        // alignment: Alignment.center,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Expanded(
+            flex: 3,
+            child: Container(
+              padding: EdgeInsets.all(30),
+              color: Colors.red[300],
+              child: Text("Expanded"),
+              
+            ),
+          ),
+              Expanded(
+                flex:1,
+                child: Container(
+                  padding: EdgeInsets.all(30),
+                  color: Colors.green[300],
+                  child: Text("Raha2"),
+                ),
+              ),
+        ],
+      ),
+      Expanded(
+        //padding: EdgeInsets.all(10),
+        child: Container(
+          padding: EdgeInsets.all(40),
+          color: Colors.yellow[300],
+          child: Text("aha3"),
+        ),
+      )
+    ],
+  ),
 
-    ), 
+  // Row(
+  //   mainAxisAlignment: MainAxisAlignment.center,
+  //   crossAxisAlignment: CrossAxisAlignment.end,
+  //   children:<Widget>[
+  //    Text("hellow"),
+  //    Text("dalsi"),
+  //    Container(color: Colors.blueAccent,)
+  //   ]
+
+  // ),
+  
+   // Center(
+    // child: TextButton(
+    //   onPressed: () => tiskDoConsole,
+    //   child:  Text("TlacoSSS"),
+
+    // ), 
 
   //  obrazek 
   //  child: Image(
   //   image: AssetImage('assets/obr5.jpg'),
   //  ),
-   
+    
      
-    ),
+   // ),
+
+    // Container(
+    //   padding: EdgeInsets.fromLTRB(10, 50, 10, 50),
+    //   color: Colors.orange[300],
+    //   child: Text("ahoj"),
+
+    // ),
+
     // child: TextButton(
     //   child: Text("neco"),
     //   onPressed:  null,
