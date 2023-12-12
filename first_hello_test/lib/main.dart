@@ -28,9 +28,13 @@ class Home extends StatelessWidget {
       Container(
         padding: EdgeInsets.all(20),
         color: Colors.brown[300],
-        child: Text("aha"),
+        child: CircleAvatar(
+          backgroundImage: AssetImage('assets/obr5.jpg'),
+          radius: 20,
+        ),
         // alignment: Alignment.center,
       ),
+      SizedBox(height: 10,),
       Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
