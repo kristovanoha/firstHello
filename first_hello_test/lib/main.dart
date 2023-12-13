@@ -10,9 +10,15 @@ void main() => runApp(MaterialApp(
 )); 
 
 
-class Home extends StatelessWidget {
-  //const MyWidget({super.key});
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
+
+  int prvniCislo = 0;
+  //const MyWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +38,7 @@ class Home extends StatelessWidget {
           backgroundImage: AssetImage('assets/obr5.jpg'),
           radius: 20,
         ),
-        // alignment: Alignment.center,
+        // alignment: Alignment.center,44č˘˘˘č˘˘
       ),
       SizedBox(height: 10,),
       Row(
@@ -43,7 +49,7 @@ class Home extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(30),
               color: Colors.red[300],
-              child: Text("Expanded"),
+              child: Text("$prvniCislo"),
               
             ),
           ),
@@ -109,18 +115,40 @@ class Home extends StatelessWidget {
       onPressed: tiskDoConsole,
       child: Icon(
         Icons.airport_shuttle,
-        color: Color.fromARGB(255, 0, 255, 64),
+        color: Color.fromARGB(255, 199, 199, 199),
       ),
       backgroundColor: Color.fromARGB(255, 69, 8, 211),
     ),
     backgroundColor: Colors.green[400],
     // bottomNavigationBar:  ,
   );
+
+
+
   }
 
-  
   void tiskDoConsole() => {
     print("jouda"),
-    print("dalsi tesx")
+    print("dalsi tesx"),
+    setState(() {
+      prvniCislo+=1;
+    })
+    // print("dalsi tesxss ", prvniCislo),
     };
 }
+
+class Test extends StatefulWidget{
+
+  @override
+  _TestState createState()=> _TestState();
+}
+
+class _TestState extends State<Test>{
+
+  int _count = 1;
+  @override
+  Widget build(BuildContext context){
+    return Container();
+  }
+}
+
