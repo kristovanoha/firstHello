@@ -1,5 +1,5 @@
+import 'package:first_hello_test/quote.dart';
 import 'package:flutter/material.dart';
-import 'quote.dart';
 
 //StatefulWidget  
 
@@ -17,44 +17,29 @@ class QuoteList extends StatefulWidget {
   State<QuoteList> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<QuoteList> {
-
    List<Quote> queotes = [ 
-    Quote("tohle","dalsi"),
+    Quote("tohleXX","dalsi"),
     Quote("tohle2","dalsi2"),
     Quote("tohle3","dalsi3"),
     
     ];
+
+class _MyWidgetState extends State<QuoteList> {
+
+List<String> autors = ["Prvni sdfsdfd sdf sdf", "Druha","Treti"];
+
     Widget quoterTemplate(queote){
-      return Card(
-        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(queote.author,
-              style: TextStyle(
-                color: Colors.green[350],
-                 fontSize: 25,
-              ),),
-                Text(queote.text,
-              style: TextStyle(
-                color: Colors.orange[350],
-               fontSize: 15,
-              ),),
-            ]),
-        ),
-          
-        );
+      return CardWidget(queote);
     }
 
-   List<String> autors = ["Prvni sdfsdfd sdf sdf", "Druha","Treti"];
+   
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(  
-      
+
+
+
     backgroundColor: Colors.yellow[100],
     appBar: AppBar(
       title: Text("Neco"),
@@ -65,8 +50,41 @@ class _MyWidgetState extends State<QuoteList> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
      // children: queotes.map((quote) => Text( quote.author + " - " + quote.text)).toList(),
-        children: queotes.map((quote) => quoterTemplate( quote)).toList(),
+        children: queotes.map((quote) => CardWidget( quote)).toList(),
       )
     );
+  }
+}
+
+class CardWidget extends StatelessWidget {
+
+ Quote quote;
+ CardWidget(this.quote);
+ 
+  @override
+  Widget build(BuildContext context) {
+   
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(quote.author,
+            style: TextStyle(
+              
+              color: Colors.green[350],
+               fontSize: 25,
+            ),),
+              Text(quote.text,
+            style: TextStyle(
+              color: Colors.orange[350],
+             fontSize: 15,
+            ),),
+          ]),
+      ),
+        
+      );
   }
 }  
