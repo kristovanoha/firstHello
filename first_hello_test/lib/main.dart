@@ -1,154 +1,72 @@
-
-
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
+import 'quote.dart';
+
+//StatefulWidget  
+
+void main()=> runApp(MaterialApp(
+  home:QuoteList(),
+));
 
 
-void main() => runApp(MaterialApp(
- home: Home(),
-)); 
+// stful  - zkratka
 
+class QuoteList extends StatefulWidget {
+ // const MyWidget({super.key});
 
-class Home extends StatefulWidget {
   @override
-  State<Home> createState() => _HomeState();
+  State<QuoteList> createState() => _MyWidgetState();
 }
 
-class _HomeState extends State<Home> {
+class _MyWidgetState extends State<QuoteList> {
 
-  int prvniCislo = 0;
-  //const MyWidget({super.key});
+   List<Quote> queotes = [ 
+    Quote("tohle","dalsi"),
+    Quote("tohle2","dalsi2"),
+    Quote("tohle3","dalsi3"),
+    
+    ];
+    Widget quoterTemplate(queote){
+      return Card(
+        margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(queote.author,
+              style: TextStyle(
+                color: Colors.green[350],
+                 fontSize: 25,
+              ),),
+                Text(queote.text,
+              style: TextStyle(
+                color: Colors.orange[350],
+               fontSize: 15,
+              ),),
+            ]),
+        ),
+          
+        );
+    }
+
+   List<String> autors = ["Prvni sdfsdfd sdf sdf", "Druha","Treti"];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-  appBar: AppBar(
-    title: const Text("coz uz2 "),
-    centerTitle: true,
-  ),
-  body: 
-  Column(
-    mainAxisAlignment: MainAxisAlignment.end,
-    crossAxisAlignment: CrossAxisAlignment.end,
-    children: <Widget>[
-      Container(
-        padding: EdgeInsets.all(20),
-        color: Colors.brown[300],
-        child: CircleAvatar(
-          backgroundImage: AssetImage('assets/obr5.jpg'),
-          radius: 20,
-        ),
-        // alignment: Alignment.center,44č˘˘˘č˘˘
-      ),
-      SizedBox(height: 10,),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.red[300],
-              child: Text("$prvniCislo"),
-              
-            ),
-          ),
-              Expanded(
-                flex:1,
-                child: Container(
-                  padding: EdgeInsets.all(30),
-                  color: Colors.green[300],
-                  child: Text("Raha2"),
-                ),
-              ),
-        ],
-      ),
-      Expanded(
-        //padding: EdgeInsets.all(10),
-        child: Container(
-          padding: EdgeInsets.all(40),
-          color: Colors.yellow[300],
-          child: Text("aha3"),
-        ),
-      )
-    ],
-  ),
-
-  // Row(
-  //   mainAxisAlignment: MainAxisAlignment.center,
-  //   crossAxisAlignment: CrossAxisAlignment.end,
-  //   children:<Widget>[
-  //    Text("hellow"),
-  //    Text("dalsi"),
-  //    Container(color: Colors.blueAccent,)
-  //   ]
-
-  // ),
-  
-   // Center(
-    // child: TextButton(
-    //   onPressed: () => tiskDoConsole,
-    //   child:  Text("TlacoSSS"),
-
-    // ), 
-
-  //  obrazek 
-  //  child: Image(
-  //   image: AssetImage('assets/obr5.jpg'),
-  //  ),
+    return Scaffold(  
+      
+    backgroundColor: Colors.yellow[100],
+    appBar: AppBar(
+      title: Text("Neco"),
+      centerTitle: true,
+      backgroundColor: Colors.green,),
     
-     
-   // ),
-
-    // Container(
-    //   padding: EdgeInsets.fromLTRB(10, 50, 10, 50),
-    //   color: Colors.orange[300],
-    //   child: Text("ahoj"),
-
-    // ),
-
-    // child: TextButton(
-    //   child: Text("neco"),
-    //   onPressed:  null,
-    // ),
-    floatingActionButton:  FloatingActionButton(
-      onPressed: tiskDoConsole,
-      child: Icon(
-        Icons.airport_shuttle,
-        color: Color.fromARGB(255, 199, 199, 199),
-      ),
-      backgroundColor: Color.fromARGB(255, 69, 8, 211),
-    ),
-    backgroundColor: Colors.green[400],
-    // bottomNavigationBar:  ,
-  );
-
-
-
+    body:Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+     // children: queotes.map((quote) => Text( quote.author + " - " + quote.text)).toList(),
+        children: queotes.map((quote) => quoterTemplate( quote)).toList(),
+      )
+    );
   }
-
-  void tiskDoConsole() => {
-    print("jouda"),
-    print("dalsi tesx"),
-    setState(() {
-      prvniCislo+=1;
-    })
-    // print("dalsi tesxss ", prvniCislo),
-    };
-}
-
-class Test extends StatefulWidget{
-
-  @override
-  _TestState createState()=> _TestState();
-}
-
-class _TestState extends State<Test>{
-
-  int _count = 1;
-  @override
-  Widget build(BuildContext context){
-    return Container();
-  }
-}
-
+}  
