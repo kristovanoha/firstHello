@@ -5,8 +5,10 @@ import 'quote.dart';
 
 class CardWidget extends StatelessWidget {
 
- Quote quote;
- CardWidget(this.quote);
+ final Quote quote;
+ final Function delete;
+
+ const CardWidget( { required this.quote, required this.delete});
  
   @override
   Widget build(BuildContext context) {
@@ -24,11 +26,20 @@ class CardWidget extends StatelessWidget {
               color: Colors.green[350],
                fontSize: 25,
             ),),
-              Text(quote.text,
+            Text(quote.text,
             style: TextStyle(
               color: Colors.orange[350],
              fontSize: 15,
             ),),
+            TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: const TextStyle(fontSize: 20),
+                  backgroundColor: Colors.red,
+                ),               
+                 onPressed: () {
+                   delete();},
+                child: const Text('Enabled'),
+              )
           ]),
       ),
         
