@@ -26,10 +26,21 @@ String time = "loading";
 
 void setupTime() async{
   WorldTime instance = WorldTime(location: 'Berlin', flag: 'obr1.jpg', url: 'Europe/Berlin');
-  print(await instance.getTime());
+  //print(await instance.getTime());
+  
   print('loadining '+ instance.time);
+await instance.getTime();
+//proc je tady chyba
+Navigator.pushReplacementNamed(context, '/homes',arguments: { 
+    'location':instance.location,
+    'flag':instance.flag,
+    'time':instance.time,
+    'test': 'testSTring'
+    });
+
   setState(() {
     time = instance.time;
+    
   });
 }
 
@@ -42,11 +53,11 @@ void initState(){
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Scaffold(
-        body:Text("Loading screen"+ time),
-      ),
+    return Scaffold(
+        body: Padding(
+          padding: EdgeInsets.all(10),
+          child: Text('loading'),
+        ),
     );
   }
 }

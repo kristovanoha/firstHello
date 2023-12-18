@@ -8,8 +8,28 @@ class Homes extends StatefulWidget {
 }
 
 class _HomeState extends State<Homes> {
+
+  Map data = {};
+
+@override
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (ModalRoute.of(context)?.settings.arguments != null) {
+      data = ModalRoute.of(context)!.settings.arguments as Map;
+      print('CO bude');
+      print(data);
+    }
+  });
+}
+
+
+
   @override
   Widget build(BuildContext context) {
+//proc je tady chyba
+  //data = ModalRoute.of(context).settings.arguments;
+  //print(ca);
     return Scaffold(
       body: SafeArea(
         child: Column(
