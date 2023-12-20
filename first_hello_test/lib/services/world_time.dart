@@ -1,5 +1,6 @@
 import 'dart:convert' as convert;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -31,7 +32,9 @@ String datetime = data['datetime'];
 
 DateTime now = DateTime.parse(datetime);
 
-time = now.toString();
+//time = now.toString();
+time = DateFormat.jm().format(now);
+print('datumNOVA '+ time);
 print('datum '+ now.toString());
 return time;
   // if (response.statusCode == 200) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 class Homes extends StatefulWidget {
   const Homes({super.key});
 
@@ -30,6 +30,11 @@ void initState() {
 //proc je tady chyba
   //data = ModalRoute.of(context).settings.arguments;
   //print(ca);
+
+  const spinkit = SpinKitRotatingCircle(
+  color: Colors.white,
+  size: 50.0,
+);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -48,7 +53,31 @@ void initState() {
                   icon: const Icon(Icons.access_alarm), // Ikona
                   label: Text('Stiskněte mě'), // Text 
                 ),
+                SizedBox(height: 70),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      data['location']?? 'nic',
+                      style:TextStyle(
+                        fontSize: 28,
+                        letterSpacing: 2
+                      )
+                    )  
+                  ]
+
+                  ,
+                ),
+                SizedBox(height: 150,),
+                Text(data['time']?? 'casd'),
+                SpinKitRotatingCircle(
+  color: Colors.white,
+  size: 150.0,
+)
+
+
               ],
+              
         ),
     ),
     );
