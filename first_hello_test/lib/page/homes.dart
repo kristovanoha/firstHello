@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:http/http.dart' as http;
+
+
 class Homes extends StatefulWidget {
   const Homes({super.key});
 
@@ -23,6 +28,41 @@ void initState() {
   });
 }
 
+ 
+  String _result = 'Nic';
+  bool _isLoading = false;
+
+  void fetchData() async {
+    setState(() {
+      _isLoading = true; // Zapnout indikátor načítání
+    });
+    try {
+      var url = Uri.parse('https://webrest01api.azure-api.net/WeatherForecast/addCount'); // Nahraďte skutečnou URL endpointu
+      var response = await http.get(url);
+      if (response.statusCode == 200) {
+        setState(() {
+          print('vysledek');
+          print(response);
+          _result = int.parse(response.body).toString();
+          //_result = json.decode(response.body); // Nahraďte klíčem, pokud je třeba extrahovat specifická data
+        });
+      } else {
+        setState(() {
+          _result = 'Nepodařilo se získat data: ${response.statusCode}';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        print('chyba');
+        print(e);
+        _result = 'Chyba: $e';
+      });
+    } finally {
+      setState(() {
+        _isLoading = false; // Vypnout indikátor načítání
+      });
+    }
+  }
 
 
   @override
@@ -41,7 +81,8 @@ void initState() {
               children: <Widget>[
                 TextButton.icon(                  
                   onPressed: () {
-                    Navigator.pushNamed(context, '/location');
+                    this.fetchData();
+                    //Navigator.pushNamed(context, '/location');
                     // Tato funkce se zavolá po stisknutí tlačítka.
                     print('Tlačítko bylo stisknuto.');
                   },
@@ -51,7 +92,7 @@ void initState() {
                 foregroundColor: Colors.yellow,
               ),
                   icon: const Icon(Icons.access_alarm), // Ikona
-                  label: Text('Stiskněte mě'), // Text 
+                  label: Text('Stiskněte mě'+_result), // Text 
                 ),
                 SizedBox(height: 70),
                 Row(

@@ -9,7 +9,7 @@ class CardWidget extends StatelessWidget {
  final Function delete;
 
  const CardWidget( { required this.quote, required this.delete});
- 
+ //test
   @override
   Widget build(BuildContext context) {
    
