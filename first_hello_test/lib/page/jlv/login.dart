@@ -1,4 +1,5 @@
 import 'package:first_hello_test/page/jlv/prvni.dart';
+import 'package:first_hello_test/page/jlv/druhy.dart';
 import 'package:first_hello_test/page/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -175,7 +176,8 @@ class Login extends StatelessWidget {
                       // Zde přidejte, co se má stát při kliknutí na tlačítko
                       print("stisk");
                      // Navigator.push(context, MaterialPageRoute(builder: (context) => Prvni()));
-                      Navigator.pushNamed(context, '/android');
+                      //Navigator.pushNamed(context, '/loading');
+                      Navigator.pushNamed(context, '/druhy');
                     },
                     child: Text('Přihlásit se'),
                    
