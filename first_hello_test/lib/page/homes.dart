@@ -92,7 +92,7 @@ void initState() {
                 foregroundColor: Colors.yellow,
               ),
                   icon: const Icon(Icons.access_alarm), // Ikona
-                  label: Text('Stiskněte mě'+_result), // Text 
+                  label: Text('Stiskněte XXmě'+_result), // Text 
                 ),
                 SizedBox(height: 70),
                 Row(
