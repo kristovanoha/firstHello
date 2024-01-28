@@ -68,7 +68,11 @@ flutter:
     - assets/obr3.jpg
     - assets/obr4.jpg
     - assets/obr5.jpg
+    - assets/IconBook.png
+    - assets/IconKey.png
     - assets/logo.jpg
+    - assets/IconNota.png
+    - assets/IconApple.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
