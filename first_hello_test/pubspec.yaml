@@ -72,7 +72,22 @@ flutter:
     - assets/IconKey.png
     - assets/logo.jpg
     - assets/IconNota.png
-    - assets/IconApple.png
+    - assets/IconApple.png   
+    - assets/iconkey.png
+    - assets/music.png
+    - assets/itunes-note.png
+    - assets/puzzle.png
+    - assets/iconbook.png
+    - assets/logojlv.png
+    - assets/prvnipage/images/music.png
+    - assets/prvnipage/images/refresh.png
+    - assets/prvnipage/images/iconkey.png
+    - assets/prvnipage/images/key.png
+    - assets/prvnipage/images/iconbook.png
+    - assets/prvnipage/images/logojlv.png
+    - assets/prvnipage/images/itunes-note.png
+    - assets/prvnipage/images/file.png
+    - assets/prvnipage/images/puzzle.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

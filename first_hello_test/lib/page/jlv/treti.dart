@@ -1,160 +1,109 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:ji_s_application2/core/app_export.dart';
 
-class Treti extends StatelessWidget {
+class TretiScreen extends StatelessWidget {
+  const TretiScreen({Key? key})
+      : super(
+          key: key,
+        );
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 310,
-          height: 481,
-          padding: const EdgeInsets.only(
-            top: 6,
-            left: 10,
-            right: 10,
-            bottom: 12,
-          ),
-          decoration: ShapeDecoration(
-            color: Color(0xFFFAE0E0),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                width: 1,
-                strokeAlign: BorderSide.strokeAlignOutside,
-              ),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            shadows: [
-              BoxShadow(
-                color: Color(0x3F000000),
-                blurRadius: 4,
-                offset: Offset(20, 17),
-                spreadRadius: 0,
-              )
-            ],
-          ),
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: double.maxFinite,
+          padding: EdgeInsets.symmetric(vertical: 5.v),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 58,
-                height: 58,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/key.png"),
-                    fit: BoxFit.contain,
-                  ),
+              _buildMainDescriptionAndSomething(context),
+              SizedBox(height: 74.v),
+              _buildApples(context),
+              SizedBox(height: 6.v),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildMainDescriptionAndSomething(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: SizedBox(
+        height: 133.v,
+        width: 273.h,
+        child: Stack(
+          alignment: Alignment.topRight,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                width: 236.h,
+                child: Text(
+                  "Hlavni popis a neco dalsiho co tam bude\n ",
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                  style: theme.textTheme.displaySmall,
                 ),
               ),
-              const SizedBox(height: 35),
-              Container(
-                width: 290,
-                height: 303,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 257,
-                      height: 53,
-                      child: Text(
-                        'Hlavni popis a neco dalsiho co tam bude\n ',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 36,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w400,
-                          height: 0,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 35),
-                    Container(
-                      width: 365,
-                      height: 96,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 274,
-                            height: 92,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width: 96,
-                                        height: 96,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: AssetImage("assets/key.png"),
-                                            fit: BoxFit.contain,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(width: 26),
-                                Container(
-                                  width: 96,
-                                  height: 96,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                     image: AssetImage("assets/key.png"),
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 26),
-                                Container(
-                                  width: 96,
-                                  height: 96,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage("assets/key.png"),
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 100),
-                          Container(
-                            width: 96,
-                            height: 96,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/key.png"),
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+            ),
+            CustomImageView(
+              imagePath: ImageConstant.imgKey,
+              height: 58.adaptSize,
+              width: 58.adaptSize,
+              alignment: Alignment.topRight,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Section Widget
+  Widget _buildApples(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: IntrinsicWidth(
+        child: SizedBox(
+          height: 96.v,
+          width: double.maxFinite,
+          child: Stack(
+            alignment: Alignment.centerLeft,
+            children: [
+              CustomImageView(
+                imagePath: ImageConstant.imgAppleLogo,
+                height: 96.v,
+                width: 68.h,
+                alignment: Alignment.centerLeft,
+              ),
+              CustomImageView(
+                imagePath: ImageConstant.imgAppleLogo96x96,
+                height: 96.adaptSize,
+                width: 96.adaptSize,
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 61.h),
+              ),
+              CustomImageView(
+                imagePath: ImageConstant.imgAppleLogo96x96,
+                height: 96.adaptSize,
+                width: 96.adaptSize,
+                alignment: Alignment.centerRight,
+                margin: EdgeInsets.only(right: 63.h),
+              ),
+              CustomImageView(
+                imagePath: ImageConstant.imgItunesNote,
+                height: 96.adaptSize,
+                width: 96.adaptSize,
+                alignment: Alignment.centerRight,
               ),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
-}
+} 
